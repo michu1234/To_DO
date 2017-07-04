@@ -1,0 +1,23 @@
+
+.sub-title {
+	margin: -29px 0 30px 0;
+}
+
+.selected {
+	background-color: #00d1b2;
+	color: #fff;
+	text-decoration: line-through;
+}
+
+form {
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+	border: 1px solic gray;
+}
+
+.size {
+	width: 150px;
+	margin-left: 10px;
+	border-radius: 10px
+}

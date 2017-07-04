@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/bulma.css">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>TODO APP with Vue.js</title>
+</head>
+
+<body>
+	<div id="todo-app">
+		<h1 class="has-text-centered">TODO App with Vue.js</h1>
+		<h2 class="sub-title has-text-centered">Manage your daily tasks!</h2>
+		<form v-on:submit="addTask" action="">
+			<div class="field">
+				<p class="control has-icons-left">
+					<input class="input" type="text" placeholder="add new task here..." v-model="tasks.name"> <span class="icon is-small is-left">
+						<i class="fa fa-tasks"></i>
+					</span> </p>
+			</div>
+			<p class="control">
+				<button class="button is-primary size"> ADD </button>
+			</p>
+		</form>
+		<div class="column is-two-thirds is-offset-2">
+			<table class="table is-bordered ">
+				<thead>
+					<tr>
+						<th><abbr title="Position">Position</abbr></th>
+						<th><abbr title="Checkmark done">Checkmark done</abbr></th>
+						<th><abbr title="Task Name">Task Name</abbr></th>
+						<th><abbr title="Delete">Delete</abbr></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="(task, index) in tasks">
+						<th>{{index + 1}}</th>
+						<td>
+							<input type="checkbox" v-model="task.done"> </td>
+						<td><span :class="{selected: task.done}">{{task.name}}</span></td>
+						<td> <a class="button is-danger" v-on:click="deleteTask(task)">Delete task</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="js/scripts.js"></script>
+</body>
+
+</html>
